@@ -1,0 +1,9 @@
+dev\oumaimaa\tradesrebalance\commands\TradesRebalanceCommand.class
+dev\oumaimaa\tradesrebalance\managers\TradeManager.class
+dev\oumaimaa\tradesrebalance\config\ConfigurationManager.class
+dev\oumaimaa\tradesrebalance\listeners\WanderingTraderListener.class
+dev\oumaimaa\tradesrebalance\listeners\VillagerTradeListener.class
+dev\oumaimaa\tradesrebalance\config\ConfigurationManager$BiomeType.class
+dev\oumaimaa\tradesrebalance\TradesRebalance.class
+dev\oumaimaa\tradesrebalance\trades\EnchantmentTradeFactory.class
+dev\oumaimaa\tradesrebalance\trades\WanderingTraderTradeFactory.class

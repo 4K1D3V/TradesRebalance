@@ -1,0 +1,58 @@
+# TradesRebalance Configuration
+# Replicates Minecraft 23w31a trade changes
+
+# Enable or disable the librarian nerf
+# When enabled, librarians will only offer biome-specific enchanted books
+enable-librarian-nerf: true
+
+# Enable or disable wandering trader updates
+# When enabled, wandering traders will have updated trades with dyes
+enable-wandering-trader-update: true
+
+# Wandering Trader Settings
+wandering-trader:
+  # Number of new dye trades to add
+  new-trades-count: 2
+
+  # Enable price adjustments for common items (makes them cheaper)
+  adjust-common-prices: true
+
+  # Enable price adjustments for rare items (makes them slightly more expensive)
+  adjust-rare-prices: true
+
+# Librarian Settings
+librarian:
+  # Biome-specific enchanted books
+  # Each biome has specific enchantments that librarians can offer
+  biome-enchantments:
+    desert:
+      - FIRE_PROTECTION
+      - THORNS
+      - INFINITY
+    jungle:
+      - FEATHER_FALLING
+      - PROJECTILE_PROTECTION
+      - UNBREAKING
+    plains:
+      - PROTECTION
+      - PUNCH
+      - SMITE
+    savanna:
+      - SHARPNESS
+      - KNOCKBACK
+      - BINDING_CURSE
+    snowy:
+      - AQUA_AFFINITY
+      - LOOTING
+      - FROST_WALKER
+    swamp:
+      - DEPTH_STRIDER
+      - RESPIRATION
+      - MENDING
+    taiga:
+      - BLAST_PROTECTION
+      - FIRE_ASPECT
+      - FLAME
+
+# Debug mode - shows detailed information in console
+debug: false
