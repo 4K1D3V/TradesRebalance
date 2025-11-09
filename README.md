@@ -90,9 +90,9 @@ mvn clean install
 ## 📁 Project Structure
 
 ```
-src/main/java/me/yourname/tradesrebalance/
+src/main/java/dev/oumaimaa/tradesrebalance/
 ├── TradesRebalance.java                      # Main plugin class with DI
-├── dev.oumaimaa.tradesrebalance.commands/
+├── commands/
 │   └── TradesRebalanceCommand.java           # Command handler with tab completion
 ├── config/
 │   └── ConfigurationManager.java             # Configuration management
@@ -299,5 +299,6 @@ This project is licensed under the **MIT License** - see [LICENSE](LICENSE) for 
 - Wandering trader dye trades
 
 ---
+
 
 **Made with ❤️ for the Minecraft community**
