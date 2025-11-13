@@ -1,4 +1,5 @@
 package dev.oumaimaa.tradesrebalance.trades;
+
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.MerchantRecipe;
@@ -147,7 +148,6 @@ public final class WanderingTraderTradeFactory {
     }
 
     private int calculatePrice(@NotNull Material material) {
-        // Base price calculation for wandering trader items
         if (material.isBlock()) {
             return random.nextInt(1, 4);
         }

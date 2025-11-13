@@ -1,4 +1,5 @@
 package dev.oumaimaa.tradesrebalance.trades;
+
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
@@ -107,15 +108,15 @@ public final class EnchantmentTradeFactory {
 
     public boolean isValidEnchantmentBook(ItemStack item) {
         if (item == null || item.getType() != Material.ENCHANTED_BOOK) {
-            return true;
+            return false;
         }
 
-        return !(item.getItemMeta() instanceof EnchantmentStorageMeta meta)
-                || !meta.hasStoredEnchants();
+        return item.getItemMeta() instanceof EnchantmentStorageMeta meta
+                && meta.hasStoredEnchants();
     }
 
     public Optional<Enchantment> getStoredEnchantment(ItemStack book) {
-        if (isValidEnchantmentBook(book)) {
+        if (!isValidEnchantmentBook(book)) {
             return Optional.empty();
         }
 

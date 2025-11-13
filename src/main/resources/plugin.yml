@@ -1,5 +1,5 @@
 name: TradesRebalance
-version: '1.0'
+version: '1.0.1'
 main: dev.oumaimaa.tradesrebalance.TradesRebalance
 api-version: '1.21'
 author: oumaimaa

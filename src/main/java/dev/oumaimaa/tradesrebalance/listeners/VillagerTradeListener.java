@@ -47,7 +47,7 @@ public final class VillagerTradeListener implements Listener {
         MerchantRecipe recipe = event.getRecipe();
         ItemStack result = recipe.getResult();
 
-        if (enchantmentFactory.isValidEnchantmentBook(result)) {
+        if (!enchantmentFactory.isValidEnchantmentBook(result)) {
             return;
         }
 

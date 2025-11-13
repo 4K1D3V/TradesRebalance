@@ -1,26 +1,48 @@
-# TradesRebalance Configuration
-# Replicates Minecraft 23w31a trade changes
+# TradesRebalance Configuration v1.0.1
+# Replicates Minecraft 23w31a trade changes + Extended features
+# Created By oumaimaa & Original Idea of Agus5534
 
-# Enable or disable the librarian nerf
-# When enabled, librarians will only offer biome-specific enchanted books
+# ===========================================
+# FEATURE TOGGLES
+# ===========================================
+
+# Librarian: Biome-specific enchanted book trades
 enable-librarian-nerf: true
 
-# Enable or disable wandering trader updates
-# When enabled, wandering traders will have updated trades with dyes
+# Wandering Trader: Dye trades and price adjustments
 enable-wandering-trader-update: true
 
-# Wandering Trader Settings
+# Cartographer: Map price adjustments and banner patterns
+enable-cartographer-update: true
+
+# Armorer: Diamond armor progression and chainmail rebalance
+enable-armorer-update: true
+
+# Toolsmith: Enchanted diamond tools and netherite upgrades
+enable-toolsmith-update: true
+
+# Weaponsmith: Enhanced weapons with enchantments
+enable-weaponsmith-update: true
+
+# Loot Tables: Enhanced chest loot in structures
+enable-loot-table-update: true
+
+# ===========================================
+# WANDERING TRADER SETTINGS
+# ===========================================
 wandering-trader:
-  # Number of new dye trades to add
+  # Number of dye trades to add (1-16)
   new-trades-count: 2
 
-  # Enable price adjustments for common items (makes them cheaper)
+  # Make common items cheaper
   adjust-common-prices: true
 
-  # Enable price adjustments for rare items (makes them slightly more expensive)
+  # Make rare items more expensive
   adjust-rare-prices: true
 
-# Librarian Settings
+# ===========================================
+# LIBRARIAN SETTINGS
+# ===========================================
 librarian:
   # Biome-specific enchanted books
   # Each biome has specific enchantments that librarians can offer
@@ -54,5 +76,87 @@ librarian:
       - FIRE_ASPECT
       - FLAME
 
-# Debug mode - shows detailed information in console
+# ===========================================
+# CARTOGRAPHER SETTINGS
+# ===========================================
+cartographer:
+  # Adjust map prices based on rarity
+  adjust-map-prices: true
+
+  # Add banner pattern trades
+  add-banner-patterns: true
+
+# ===========================================
+# ARMORER SETTINGS
+# ===========================================
+armorer:
+  # Diamond armor availability by:
+  # Level 3: Leggings and Boots
+  # Level 4: Helmet and Chestplate
+  # Level 5: All pieces
+  progressive-diamond-armor: true
+
+  # Make chainmail more accessible and cheaper
+  improved-chainmail-trades: true
+
+  # Add armor trim template trades for masters
+  add-armor-trims: true
+
+# ===========================================
+# TOOLSMITH SETTINGS
+# ===========================================
+toolsmith:
+  # Chance to add enchantments to diamond tools (0.0-1.0)
+  enchant-diamond-tools-chance: 0.6
+
+  # Add netherite upgrade template trades
+  add-netherite-upgrades: true
+
+# ===========================================
+# WEAPONSMITH SETTINGS
+# ===========================================
+weaponsmith:
+  # Chance to add enchantments to weapons (0.0-1.0)
+  enchant-weapons-chance: 0.7
+
+  # Add mace trades (1.21+ feature)
+  add-mace-trades: true
+
+  # Add bell trades
+  add-bell-trades: true
+
+# ===========================================
+# LOOT TABLE ENHANCEMENTS
+# ===========================================
+loot-tables:
+  # Enhanced structures (better loot, higher chances)
+  enhanced-structures:
+    - ANCIENT_CITY        # Echo shards, Swift Sneak
+    - BASTION_TREASURE    # Netherite, Soul Speed
+    - BURIED_TREASURE     # Heart of the Sea, Mending
+    - DESERT_PYRAMID      # Fire Protection, Thorns
+    - END_CITY_TREASURE   # Elytra, Mending
+    - JUNGLE_TEMPLE       # Feather Falling
+    - NETHER_BRIDGE       # Fire Aspect
+    - SHIPWRECK_TREASURE  # Depth Strider, Respiration
+    - STRONGHOLD_LIBRARY  # Better enchanted books
+    - UNDERWATER_RUIN_BIG # Golden apples
+    - WOODLAND_MANSION    # Totems, diamonds
+    - TRIAL_CHAMBERS      # Heavy Core, new enchantments
+
+  # Bonus item chance increase (0.0-1.0)
+  # 0.15 = 15% increased chance for rare items
+  bonus-chance-multiplier: 0.15
+
+# ===========================================
+# DEBUG SETTINGS
+# ===========================================
+
+# Enable detailed console logging
 debug: false
+
+# Log every trade modification (WARNING: Very verbose!)
+debug-trade-modifications: false
+
+# Log loot table generation
+debug-loot-generation: false

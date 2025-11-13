@@ -19,15 +19,6 @@ public final class ConfigurationManager {
 
     private final TradesRebalance plugin;
     private final Path dataFolder;
-    private FileConfiguration config;
-
-    private boolean librarianNerfEnabled;
-    private boolean wanderingTraderUpdateEnabled;
-    private int newTradesCount;
-    private boolean adjustCommonPrices;
-    private boolean adjustRarePrices;
-    private boolean debugMode;
-
     private final Map<String, Set<Enchantment>> biomeEnchantments = new EnumMap<>(BiomeType.class)
             .entrySet()
             .stream()
@@ -35,6 +26,18 @@ public final class ConfigurationManager {
                     e -> e.getKey().name(),
                     e -> new HashSet<>()
             ));
+    private FileConfiguration config;
+    private boolean librarianNerfEnabled;
+    private boolean wanderingTraderUpdateEnabled;
+    private boolean cartographerUpdateEnabled;
+    private boolean armorerUpdateEnabled;
+    private boolean toolsmithUpdateEnabled;
+    private boolean weaponsmithUpdateEnabled;
+    private boolean lootTableUpdateEnabled;
+    private int newTradesCount;
+    private boolean adjustCommonPrices;
+    private boolean adjustRarePrices;
+    private boolean debugMode;
 
     public ConfigurationManager(@NotNull TradesRebalance plugin) {
         this.plugin = plugin;
@@ -66,17 +69,20 @@ public final class ConfigurationManager {
     }
 
     private void loadValues() {
-        // Load feature toggles
+
         librarianNerfEnabled = config.getBoolean("enable-librarian-nerf", true);
         wanderingTraderUpdateEnabled = config.getBoolean("enable-wandering-trader-update", true);
+        cartographerUpdateEnabled = config.getBoolean("enable-cartographer-update", true);
+        armorerUpdateEnabled = config.getBoolean("enable-armorer-update", true);
+        toolsmithUpdateEnabled = config.getBoolean("enable-toolsmith-update", true);
+        weaponsmithUpdateEnabled = config.getBoolean("enable-weaponsmith-update", true);
+        lootTableUpdateEnabled = config.getBoolean("enable-loot-table-update", true);
         debugMode = config.getBoolean("debug", false);
 
-        // Load wandering trader settings
         newTradesCount = config.getInt("wandering-trader.new-trades-count", 2);
         adjustCommonPrices = config.getBoolean("wandering-trader.adjust-common-prices", true);
         adjustRarePrices = config.getBoolean("wandering-trader.adjust-rare-prices", true);
 
-        // Load biome enchantments
         loadBiomeEnchantments();
 
         plugin.getSLF4JLogger().info("Configuration loaded successfully");
@@ -165,6 +171,26 @@ public final class ConfigurationManager {
 
     public boolean isWanderingTraderUpdateEnabled() {
         return wanderingTraderUpdateEnabled;
+    }
+
+    public boolean isCartographerUpdateEnabled() {
+        return cartographerUpdateEnabled;
+    }
+
+    public boolean isArmorerUpdateEnabled() {
+        return armorerUpdateEnabled;
+    }
+
+    public boolean isToolsmithUpdateEnabled() {
+        return toolsmithUpdateEnabled;
+    }
+
+    public boolean isWeaponsmithUpdateEnabled() {
+        return weaponsmithUpdateEnabled;
+    }
+
+    public boolean isLootTableUpdateEnabled() {
+        return lootTableUpdateEnabled;
     }
 
     public int getNewTradesCount() {
