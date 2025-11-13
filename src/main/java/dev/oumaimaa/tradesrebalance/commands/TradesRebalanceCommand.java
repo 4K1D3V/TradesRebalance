@@ -5,7 +5,9 @@ import dev.oumaimaa.tradesrebalance.config.ConfigurationManager;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
-import org.bukkit.command.*;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabExecutor;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -13,11 +15,10 @@ import java.util.stream.Stream;
 
 public final class TradesRebalanceCommand implements TabExecutor {
 
-    private final TradesRebalance plugin;
-    private final ConfigurationManager configManager;
-
     private static final String PERMISSION_BASE = "tradesrebalance.";
     private static final String PERMISSION_RELOAD = PERMISSION_BASE + "reload";
+    private final TradesRebalance plugin;
+    private final ConfigurationManager configManager;
 
     public TradesRebalanceCommand(TradesRebalance plugin, ConfigurationManager configManager) {
         this.plugin = plugin;

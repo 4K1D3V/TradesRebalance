@@ -1,4 +1,4 @@
-# TradesRebalance v1.0
+# TradesRebalance v1.0.1
 
 A modern, high-performance Minecraft plugin that replicates villager and wandering trader changes from Minecraft snapshot 23w31a. Built with **Java 21**, **Adventure API**, and advanced programming patterns for maximum efficiency and maintainability.
 
@@ -55,7 +55,7 @@ Librarians now offer **biome-specific enchanted book trades**, encouraging explo
 
 ### Steps
 1. Download the latest release from [Releases](https://github.com/4K1D3V/TradesRebalance/releases)
-2. Place `TradesRebalance-1.0.jar` in your `plugins` folder
+2. Place `TradesRebalance-1.0.1.jar` in your `plugins` folder
 3. Restart your server
 4. Configure in `plugins/TradesRebalance/config.yml`
 
@@ -75,7 +75,7 @@ cd TradesRebalance
 # Build with Maven
 mvn clean package
 
-# Output: target/TradesRebalance-1.0.jar
+# Output: target/TradesRebalance-1.0.1.jar
 ```
 
 ### Development Build
@@ -97,13 +97,19 @@ src/main/java/dev/oumaimaa/tradesrebalance/
 ├── config/
 │   └── ConfigurationManager.java             # Configuration management
 ├── managers/
-│   └── TradeManager.java                     # Centralized trade logic
+│   ├── TradeManager.java                     # Centralized trade logic
+│   └── LootTableManager.java                 # Loot table enhancements (NEW!)
 ├── trades/
 │   ├── EnchantmentTradeFactory.java          # Enchantment trade generation
 │   └── WanderingTraderTradeFactory.java      # Wandering trader trades
 └── listeners/
     ├── VillagerTradeListener.java            # Villager trade events
-    └── WanderingTraderListener.java          # Wandering trader events
+    ├── WanderingTraderListener.java          # Wandering trader events
+    ├── CartographerTradeListener.java        # Cartographer trades (NEW!)
+    ├── ArmorerTradeListener.java             # Armorer trades (NEW!)
+    ├── ToolsmithTradeListener.java           # Toolsmith trades (NEW!)
+    ├── WeaponsmithTradeListener.java         # Weaponsmith trades (NEW!)
+    └── LootTableListener.java                # Loot generation (NEW!)
 
 src/main/resources/
 ├── plugin.yml                                 # Plugin metadata
@@ -131,7 +137,7 @@ src/main/resources/
 | Permission | Description | Default |
 |------------|-------------|---------|
 | `tradesrebalance.use` | Basic command access | `true` |
-| `tradesrebalance.reload` | Reload & debug dev.oumaimaa.tradesrebalance.commands | `op` |
+| `tradesrebalance.reload` | Reload & debug commands | `op` |
 | `tradesrebalance.admin` | All permissions | `op` |
 
 ## ⚙️ Configuration
@@ -253,7 +259,7 @@ Optional<MerchantRecipe> trade = factory.createEnchantmentTrade(
 boolean isRare = tradeManager.isRareItem(Material.BLUE_ICE);
 ```
 
-## 🔄 Migration from v2.x
+## 🔄 Migration from v1.x
 
 Version 1.0 introduces breaking changes:
 
@@ -277,12 +283,12 @@ This project is licensed under the **MIT License** - see [LICENSE](LICENSE) for 
 
 - 🐛 **Bug Reports**: [GitHub Issues](https://github.com/4K1D3V/TradesRebalance/issues)
 - 💡 **Feature Requests**: [GitHub Discussions](https://github.com/4K1D3V/TradesRebalance/discussions)
-- 📖 **Documentation**: [Wiki](https://github.com/you4K1D3Vrusername/TradesRebalance/wiki)
+- 📖 **Documentation**: [Wiki](https://github.com/4K1D3V/TradesRebalance/wiki)
 - 💬 **Discord**: [Join Server](https://discord.gg/4K1D3V)
 
 ## 📈 Changelog
 
-### Version 1.0 (Current)
+### Version 1.0.1 (Current)
 - ✨ Complete rewrite using Java 21 features
 - 🎨 Adventure API integration (no deprecated methods)
 - 🏗️ Advanced design patterns (Factory, Manager, DI)
@@ -290,8 +296,15 @@ This project is licensed under the **MIT License** - see [LICENSE](LICENSE) for 
 - 💾 Concurrent caching system
 - 🔧 Enhanced configuration management
 - 🐛 Debug mode with detailed logging
-- 📝 Tab completion for all dev.oumaimaa.tradesrebalance.commands
+- 📝 Tab completion for all commands
 - 🎯 Pattern matching & modern Java syntax
+- **🆕 Cartographer map & banner pattern rebalance**
+- **🆕 Armorer progressive diamond armor system**
+- **🆕 Toolsmith enchanted tools & netherite upgrades**
+- **🆕 Weaponsmith enhanced weapons & mace trades**
+- **🆕 Loot table enhancements for 12+ structures**
+- **🆕 Smart enchantment system (no conflicts)**
+- **🆕 Record classes for immutable data**
 
 ### Version 2.0.0
 - Initial modern version for 1.21+
@@ -299,6 +312,5 @@ This project is licensed under the **MIT License** - see [LICENSE](LICENSE) for 
 - Wandering trader dye trades
 
 ---
-
 
 **Made with ❤️ for the Minecraft community**
